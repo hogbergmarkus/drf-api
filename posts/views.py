@@ -9,6 +9,9 @@ from drf_api.permissions import IsOwnerOrReadOnly
 
 # Create your views here.
 class PostList(APIView):
+    """
+    List posts or create a post if logged in
+    """
     serializer_class = PostSerializer
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly
