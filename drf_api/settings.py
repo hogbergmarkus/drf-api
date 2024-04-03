@@ -63,7 +63,7 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'first-rest-framework-api.herokuapp.com',
+    os.environ.get('ALLOWED_HOST'),
 ]
 
 
