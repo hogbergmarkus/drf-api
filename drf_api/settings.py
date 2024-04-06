@@ -114,7 +114,7 @@ if 'DEV' in os.environ:
     ]
 else:
     CORS_ALLOWED_ORIGINS = [
-        'https://moments-markus-0c6c01ab8302.herokuapp.com/'
+        'https://moments-markus-0c6c01ab8302.herokuapp.com'
     ]
 
 CORS_ALLOW_CREDENTIALS = True
