@@ -108,13 +108,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-if 'DEV' in os.environ:
+if 'CLIENT_ORIGIN_DEV' in os.environ:
     CORS_ALLOWED_ORIGINS = [
-        'http://localhost:3000',
+        os.environ.get('CLIENT_ORIGIN_DEV')
     ]
-else:
+elif 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS = [
-        'https://moments-markus-0c6c01ab8302.herokuapp.com'
+        os.environ.get('CLIENT_ORIGIN')
+    ] 
+else:  
+    CORS_ALLOWED_ORIGINS = [
+        'http://localhost:3000', 
     ]
 
 CORS_ALLOW_CREDENTIALS = True
