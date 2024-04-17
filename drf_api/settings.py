@@ -62,8 +62,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEBUG' in os.environ
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
     os.environ.get('ALLOWED_HOST'),
+    '127.0.0.1'
 ]
 
 
@@ -108,8 +108,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN'),
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+else:
+    CORS_ALLOWED_ORIGINS = [
+        'http://127.0.0.1:8000',
+        'http://localhost:3000',
     ]
 
 CORS_ALLOW_CREDENTIALS = True
